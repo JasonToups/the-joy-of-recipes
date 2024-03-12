@@ -15,8 +15,6 @@ export const createAndConnectToServer = async (): Promise<typeof mongoose> => {
   const mongod = await MongoMemoryServer.create()
   const url = mongod.getUri()
   const connection = await mongoose.connect(url, {
-    useNewUrlParser: true,
-    keepAlive: true,
     connectTimeoutMS: 30000,
   })
   // add default recipes
